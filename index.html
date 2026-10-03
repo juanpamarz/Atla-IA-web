@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="AtlaIA: biotecnología radicular e inteligencia artificial para conservar el agua y cuidar la tierra."
+      content="Revolución hídrica: biotecnología radicular e inteligencia artificial para conservar el agua y cuidar la tierra."
     />
-    <title>AtlaIA — Revolución hídrica bajo la tierra</title>
+    <title>Revolución hídrica bajo la tierra</title>
     <style>
       :root {
-        --black: #0d0b0a;
-        --black-soft: #12100e;
+        --black: #0d1c17;
+        --black-soft: #11241c;
         --earth: #b89768;
         --earth-dark: #8c6d48;
         --field: #2d4a3e;
@@ -53,7 +53,7 @@
         padding: 0 18px;
         border: 1px solid rgba(232, 238, 233, .17);
         border-radius: 999px;
-        background: rgba(13, 11, 10, .72);
+        background: rgba(13, 28, 23, .8);
         backdrop-filter: blur(18px);
       }
       .brand { display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 700; letter-spacing: -.04em; }
@@ -71,9 +71,9 @@
         overflow: hidden;
         padding: 160px 0 85px;
         background:
-          linear-gradient(90deg, rgba(13, 11, 10, .9) 0%, rgba(13, 11, 10, .58) 48%, rgba(13, 11, 10, .38) 100%),
-          linear-gradient(0deg, rgba(13, 11, 10, .94) 0%, transparent 42%),
-          url("the_northern_photographer-tractor-9779346_1920.jpg") center/cover;
+          linear-gradient(90deg, rgba(13, 28, 23, .7) 0%, rgba(13, 28, 23, .3) 55%, rgba(13, 28, 23, .12) 100%),
+          linear-gradient(0deg, rgba(13, 28, 23, .72) 0%, transparent 48%),
+          url("saulhm-mexico-4742214_1920.jpg") center/cover;
       }
       .hero::after { content: ""; position: absolute; right: 7%; bottom: 12%; width: 1px; height: 110px; background: linear-gradient(transparent, var(--earth)); }
       .hero-copy { position: relative; z-index: 1; max-width: 910px; }
@@ -86,9 +86,19 @@
       .pill-primary:hover { background: var(--mist); border-color: var(--mist); }
       .pill-ghost { border-color: rgba(232, 238, 233, .32); color: var(--mist); }
       .pill-ghost:hover { background: var(--mist); color: var(--black); }
-      .hero-index { position: absolute; right: 6%; bottom: 72px; color: rgba(232, 238, 233, .5); font: 11px/1 var(--sans); letter-spacing: .2em; writing-mode: vertical-rl; text-transform: uppercase; }
+      .hero-index { position: absolute; right: 6%; bottom: 72px; color: rgba(232, 238, 233, .7); font: 11px/1 var(--sans); letter-spacing: .2em; writing-mode: vertical-rl; text-transform: uppercase; }
+      .drop-animation { position: absolute; z-index: 2; top: 71px; right: 12%; width: 170px; height: 430px; pointer-events: none; }
+      .drop-animation::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 1px; background: linear-gradient(90deg, transparent, rgba(139, 201, 176, .65), transparent); }
+      .drop { position: absolute; top: -13px; width: 20px; height: 27px; overflow: hidden; border: 1px solid rgba(196, 235, 219, .82); border-radius: 52% 48% 58% 42% / 58% 58% 42% 42%; background: radial-gradient(ellipse at 28% 20%, rgba(255, 255, 255, .88) 0 7%, transparent 22%), radial-gradient(ellipse at 68% 76%, rgba(28, 91, 68, .58), transparent 62%), linear-gradient(145deg, rgba(221, 248, 235, .55), rgba(75, 157, 123, .2) 52%, rgba(15, 53, 40, .46)); box-shadow: inset -3px -4px 7px rgba(7, 35, 26, .32), inset 2px 2px 4px rgba(255, 255, 255, .5), 0 0 18px rgba(125, 201, 164, .42), 0 7px 13px rgba(0, 0, 0, .2); backdrop-filter: blur(7px) saturate(145%); -webkit-backdrop-filter: blur(7px) saturate(145%); transform: rotate(-45deg); animation: dropFall 3.8s cubic-bezier(.28, .05, .3, 1) infinite; will-change: top, opacity; }
+      .drop::before { content: ""; position: absolute; inset: 3px; border: 1px solid rgba(234, 255, 245, .35); border-radius: inherit; background: linear-gradient(125deg, rgba(255, 255, 255, .2), transparent 38% 67%, rgba(10, 62, 45, .18)); filter: blur(.4px); }
+      .drop::after { content: ""; position: absolute; top: 4px; left: 4px; width: 5px; height: 9px; border-radius: 70% 35% 65% 40%; background: linear-gradient(160deg, rgba(255, 255, 255, .96), rgba(255, 255, 255, .12)); box-shadow: 2px 1px 4px rgba(255, 255, 255, .25); transform: rotate(45deg); }
+      .drop:nth-child(1) { left: 8%; animation-delay: -.2s; animation-duration: 3.5s; }
+      .drop:nth-child(2) { left: 31%; animation-delay: -1.7s; animation-duration: 4.1s; transform: scale(.78) rotate(-45deg); }
+      .drop:nth-child(3) { left: 57%; animation-delay: -2.8s; animation-duration: 3.7s; transform: scale(1.12) rotate(-45deg); }
+      .drop:nth-child(4) { left: 82%; animation-delay: -.9s; animation-duration: 4.4s; transform: scale(.62) rotate(-45deg); }
+      @keyframes dropFall { 0% { top: -13px; opacity: 0; } 9% { opacity: 1; } 68% { opacity: .9; } 100% { top: 420px; opacity: 0; } }
 
-      .intro { padding: 170px 0 155px; background: var(--black); }
+      .intro { padding: 170px 0 155px; background: #13251e; }
       .intro-grid { display: grid; grid-template-columns: .58fr 1fr; gap: 100px; align-items: start; }
       .intro h2 { max-width: 760px; }
       .intro h2 em { color: var(--earth); font-style: normal; }
@@ -98,10 +108,10 @@
       .micro-stat strong { display: block; color: var(--earth); font-size: 39px; font-weight: 400; letter-spacing: -.08em; }
       .micro-stat span { color: var(--muted); font-size: 11px; }
 
-      .bento { padding: 0 0 155px; background: var(--black); }
+      .bento { padding: 0 0 155px; background: #13251e; }
       .bento-grid { display: grid; grid-template-columns: 1.18fr .82fr; grid-template-rows: 325px 325px; gap: 12px; }
       .image-card { position: relative; overflow: hidden; min-height: 240px; }
-      .image-card::before { content: ""; position: absolute; z-index: 1; inset: 0; background: linear-gradient(0deg, rgba(13, 11, 10, .88), rgba(13, 11, 10, .12) 70%); }
+      .image-card::before { content: ""; position: absolute; z-index: 1; inset: 0; background: linear-gradient(0deg, rgba(13, 28, 23, .7), rgba(13, 28, 23, .03) 70%); }
       .image-card img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .7s cubic-bezier(.2,.7,.2,1); }
       .image-card:hover img { transform: scale(1.045); }
       .image-card-large { grid-row: 1 / 3; }
@@ -111,7 +121,7 @@
       .image-card h3 { margin-bottom: 7px; font-size: 33px; }
       .card-number { position: absolute; z-index: 2; top: 24px; left: 26px; color: rgba(232, 238, 233, .72); font-size: 10px; letter-spacing: .18em; }
 
-      .biotech { padding: 165px 0; background: #11100e; }
+      .biotech { padding: 165px 0; background: #11231b; }
       .split-heading { display: grid; grid-template-columns: 1fr .55fr; gap: 100px; align-items: end; margin-bottom: 90px; }
       .split-heading h2 { max-width: 670px; margin-bottom: 0; }
       .split-heading h2 span { color: var(--field-light); }
@@ -135,7 +145,7 @@
       .ai-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: 100px; align-items: center; }
       .ai-copy h2 { max-width: 620px; }.ai-copy h2 span { color: var(--earth); }.ai-copy p { max-width: 430px; }
       .ai-visual { position: relative; height: 520px; overflow: hidden; border: 1px solid var(--line); background: url("saulhm-mexico-4742214_1920.jpg") center/cover; }
-      .ai-visual::before { content: ""; position: absolute; inset: 0; background: linear-gradient(130deg, rgba(13, 11, 10, .87), rgba(13, 11, 10, .28)); }
+      .ai-visual::before { content: ""; position: absolute; inset: 0; background: linear-gradient(130deg, rgba(13, 28, 23, .7), rgba(13, 28, 23, .15)); }
       .signal { position: absolute; z-index: 1; right: 32px; bottom: 30px; left: 32px; padding-top: 16px; border-top: 1px solid rgba(232, 238, 233, .35); color: var(--mist); font-size: 12px; }
       .signal strong { display: block; margin-bottom: 5px; color: var(--earth); font-size: 20px; font-weight: 400; }
       .signal span { color: #c1c6bc; }
@@ -144,7 +154,7 @@
       .data-lines { position: absolute; z-index: 1; top: 37%; right: 11%; left: 11%; height: 100px; background: repeating-linear-gradient(0deg, transparent 0 27px, rgba(232, 238, 233, .25) 28px); }
       .data-lines::after { content: ""; position: absolute; inset: 15px 0; border-top: 1px solid var(--earth); border-right: 1px solid var(--earth); transform: skewY(-16deg); }
 
-      .final-image { position: relative; min-height: 555px; display: flex; align-items: center; overflow: hidden; padding: 100px 0; background: linear-gradient(90deg, rgba(13, 11, 10, .88), rgba(13, 11, 10, .4)), url("lucynietoc-agriculture-3126782_1920.jpg") center/cover; }
+      .final-image { position: relative; min-height: 555px; display: flex; align-items: center; overflow: hidden; padding: 100px 0; background: linear-gradient(90deg, rgba(13, 28, 23, .7), rgba(13, 28, 23, .18)), url("jhenning-wheat-9639560_1920.jpg") center/cover; }
       .final-image h2 { max-width: 740px; }.final-image h2 span { color: var(--earth); }.final-image p { max-width: 470px; color: #d3d5ce; }
       .newsletter { padding: 145px 0 160px; background: var(--black-soft); }
       .newsletter-inner { display: grid; grid-template-columns: 1fr .78fr; gap: 120px; align-items: end; }
@@ -173,7 +183,7 @@
   <body>
     <header class="nav">
       <div class="wrap nav-inner">
-        <a class="brand" href="#inicio" aria-label="AtlaIA, inicio"><span class="brand-mark">A</span><span>AtlaIA</span></a>
+        <a class="brand" href="#inicio" aria-label="Agua y suelo, inicio"><span class="brand-mark">≈</span><span>Agua / suelo</span></a>
         <nav class="nav-links" aria-label="Navegación principal">
           <a href="#biotecnologia">Biotecnología</a>
           <a href="#inteligencia">IA agrícola</a>
@@ -184,16 +194,17 @@
 
     <main>
       <section class="hero" id="inicio" aria-labelledby="hero-title">
+        <div class="drop-animation" aria-hidden="true"><span class="drop"></span><span class="drop"></span><span class="drop"></span><span class="drop"></span></div>
         <div class="wrap hero-copy">
           <p class="eyebrow">Agricultura · agua · vida</p>
           <h1 id="hero-title">Revolución hídrica <span>bajo la tierra.</span></h1>
-          <p class="hero-subtitle">AtlaIA conecta la inteligencia de las raíces con la claridad de los datos para cuidar el agua desde el lugar donde empieza todo: el suelo.</p>
+          <p class="hero-subtitle">La inteligencia de las raíces se encuentra con la claridad de los datos para cuidar el agua desde el lugar donde empieza todo: el suelo.</p>
           <div class="actions">
             <a class="pill pill-primary" href="#biotecnologia">Descubrir tecnología <span>↓</span></a>
             <a class="pill pill-ghost" href="#contacto">Saber más <span>↗</span></a>
           </div>
         </div>
-        <span class="hero-index">01 / AtlaIA</span>
+        <span class="hero-index">01 / Agua y suelo</span>
       </section>
 
       <section class="intro" aria-labelledby="intro-title">
@@ -202,7 +213,7 @@
           <div>
             <h2 id="intro-title">El agua no se pierde solo en la superficie. <em>También se pierde en la decisión.</em></h2>
             <div class="intro-copy">
-              <p>Regar por costumbre es decidir sin escuchar. AtlaIA observa lo que ocurre bajo el cultivo y convierte esa lectura en una forma más consciente de cuidar cada gota.</p>
+              <p>Regar por costumbre es decidir sin escuchar. Este enfoque observa lo que ocurre bajo el cultivo y convierte esa lectura en una forma más consciente de cuidar cada gota.</p>
               <div class="micro-stat"><strong>35%</strong><span>ahorro hídrico objetivo del proyecto</span></div>
             </div>
           </div>
@@ -212,12 +223,12 @@
       <section class="bento" aria-label="El campo que queremos cuidar">
         <div class="wrap bento-grid">
           <article class="image-card image-card-large">
-            <img src="saulhm-mexico-4742214_1920.jpg" alt="Surcos de cultivo frente a una montaña" />
+            <img src="lucynietoc-agriculture-3126782_1920.jpg" alt="Surcos de cultivo frente a una montaña" />
             <span class="card-number">02 / EL CONTEXTO</span>
             <div class="card-content"><div class="card-kicker">La tierra primero</div><h3>Un campo vivo lee su propio ritmo.</h3><p>La humedad, el clima y la estructura del suelo cambian. La decisión también debería hacerlo.</p></div>
           </article>
           <article class="image-card">
-            <img src="lucynietoc-agriculture-3126782_1920.jpg" alt="Campo agrícola con surcos bajo un cielo azul" />
+            <img src="jhenning-wheat-9639560_1920.jpg" alt="Campo de trigo bajo un cielo abierto" />
             <span class="card-number">03</span>
             <div class="card-content"><div class="card-kicker">Menos desperdicio</div><h3>Proteger el agua es proteger el futuro.</h3></div>
           </article>
@@ -254,18 +265,18 @@
       </section>
 
       <section class="final-image" aria-labelledby="final-title">
-        <div class="wrap"><p class="eyebrow">Una nueva manera de mirar</p><h2 id="final-title">Más ciencia en la raíz.<br /><span>Más calma en la decisión.</span></h2><p>AtlaIA une biología, observación y aprendizaje para que el cuidado del agua sea parte natural de cómo se cultiva.</p></div>
+        <div class="wrap"><p class="eyebrow">Una nueva manera de mirar</p><h2 id="final-title">Más ciencia en la raíz.<br /><span>Más calma en la decisión.</span></h2><p>Biología, observación y aprendizaje se unen para que el cuidado del agua sea parte natural de cómo se cultiva.</p></div>
       </section>
 
       <section class="newsletter" id="contacto" aria-labelledby="newsletter-title">
         <div class="wrap newsletter-inner">
           <div class="newsletter-copy"><p class="eyebrow">03 / Mantente cerca</p><h2 id="newsletter-title">Sé parte de la <span>evolución agrícola.</span></h2></div>
-          <div><p>Déjanos tu correo para recibir novedades, avances y más información sobre AtlaIA.</p><form class="form" id="newsletter-form"><input id="email" name="email" type="email" placeholder="tu@correo.com" aria-label="Correo electrónico" required /><button type="submit">Suscribirme&nbsp; ↗</button></form><p class="form-status" id="form-status" role="status" aria-live="polite"></p></div>
+          <div><p>Déjanos tu correo para recibir novedades, avances y más información sobre agricultura regenerativa y uso eficiente del agua.</p><form class="form" id="newsletter-form"><input id="email" name="email" type="email" placeholder="tu@correo.com" aria-label="Correo electrónico" required /><button type="submit">Suscribirme&nbsp; ↗</button></form><p class="form-status" id="form-status" role="status" aria-live="polite"></p></div>
         </div>
       </section>
     </main>
 
-    <footer><div class="wrap footer-inner"><span>AtlaIA · Revolución hídrica bajo la tierra.</span><span>Agua · suelo · decisiones</span></div></footer>
+    <footer><div class="wrap footer-inner"><span>Revolución hídrica bajo la tierra.</span><span>Agua · suelo · decisiones</span></div></footer>
     <script>
       const form = document.querySelector("#newsletter-form");
       const status = document.querySelector("#form-status");
