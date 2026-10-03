@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="AtlaIA: biotecnología radicular, sensores IoT y aprendizaje automático para ahorrar agua en la agricultura."
+    />
+    <title>AtlaIA | Agricultura que conserva el agua</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#inicio" aria-label="AtlaIA, volver al inicio">
+          <span class="brand-mark" aria-hidden="true">A</span>
+          <span>
+            <strong>AtlaIA</strong>
+            <small>UAQ · Investigación aplicada</small>
+          </span>
+        </a>
+        <nav class="main-nav" aria-label="Navegación principal">
+          <a href="#problema">Enfoque hídrico</a>
+          <a href="#sistema">Tres capas</a>
+          <a href="#modelo">Modelo</a>
+          <a href="#impacto">Impacto</a>
+        </nav>
+        <span class="header-status"><i></i> Proyecto integral</span>
+      </div>
+    </header>
+
+    <main id="inicio">
+      <section class="hero container" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Universidad Autónoma de Querétaro</p>
+          <h1 id="hero-title">La agricultura puede producir más con <em>menos agua.</em></h1>
+          <p class="hero-lead">
+            AtlaIA integra vida microbiana, medición en campo y modelos predictivos para
+            convertir cada decisión de riego en una decisión basada en evidencia.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#sistema">Conocer el sistema <span>↓</span></a>
+            <a class="text-link" href="#modelo">Ver una lectura del modelo <span>→</span></a>
+          </div>
+        </div>
+        <div class="hero-data" aria-label="Objetivo principal del proyecto">
+          <div class="data-label"><span class="data-pulse"></span> Prioridad de AtlaIA</div>
+          <div class="target-number">35<span>%</span></div>
+          <p>de ahorro hídrico proyectado en agricultura</p>
+          <div class="target-rule"><span></span></div>
+          <div class="target-meta"><span>Uso actual</span><strong>Riego empírico</strong></div>
+          <div class="target-meta"><span>Objetivo</span><strong>Riego preciso</strong></div>
+        </div>
+      </section>
+
+      <section class="problem section-border" id="problema" aria-labelledby="problem-title">
+        <div class="container split-section">
+          <div class="section-intro">
+            <p class="eyebrow">01 · Enfoque hídrico</p>
+            <h2 id="problem-title">El agua se pierde antes de que la planta pueda aprovecharla.</h2>
+          </div>
+          <div class="problem-content">
+            <p class="large-copy">
+              La agricultura opera entre dos deterioros conectados: el riego sin lectura del
+              suelo desperdicia agua y la aplicación intensiva de agroquímicos degrada la
+              estructura que debería retenerla.
+            </p>
+            <div class="problem-grid">
+              <article>
+                <span class="problem-index">A</span>
+                <h3>Suelo que deja de retener</h3>
+                <p>La pérdida de microbiota nativa reduce la porosidad y acelera la lixiviación hacia los mantos acuíferos.</p>
+              </article>
+              <article>
+                <span class="problem-index">B</span>
+                <h3>Riego a ciegas</h3>
+                <p>Sin humedad volumétrica ni pronóstico, se riega por costumbre: demasiado tarde, demasiado pronto o de más.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="layers section-border" id="sistema" aria-labelledby="layers-title">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">02 · Sistema integral</p>
+              <h2 id="layers-title">Tres capas para una sola decisión: cuándo regar.</h2>
+            </div>
+            <p>La inteligencia no está en un dispositivo aislado, sino en la continuidad entre suelo, señal y decisión.</p>
+          </div>
+          <div class="layer-list">
+            <article class="layer-card">
+              <div class="layer-number">01</div>
+              <div class="layer-content">
+                <p class="layer-type">Biotecnología · Debajo del suelo</p>
+                <h3>Soporte biológico radicular</h3>
+                <p>Hongos micorrizógenos arbusculares y bacterias PGPB crean una red simbiótica que mejora la estructura del suelo, la absorción y la retención natural de humedad.</p>
+                <div class="layer-tag">Retener antes de reponer</div>
+              </div>
+              <div class="layer-schematic" aria-hidden="true"><span class="root-line"></span><span class="root-line"></span><span class="root-line"></span><i></i></div>
+            </article>
+            <article class="layer-card">
+              <div class="layer-number">02</div>
+              <div class="layer-content">
+                <p class="layer-type">IoT · En tiempo real</p>
+                <h3>Red de sensores de campo</h3>
+                <p>Nodos con microcontroladores como ESP32 capturan humedad volumétrica, temperatura y conductividad eléctrica directamente en la zona radicular.</p>
+                <div class="layer-tag">Medir donde ocurre</div>
+              </div>
+              <div class="sensor-schematic" aria-hidden="true"><span></span><span></span><span></span></div>
+            </article>
+            <article class="layer-card">
+              <div class="layer-number">03</div>
+              <div class="layer-content">
+                <p class="layer-type">Machine Learning · En contexto</p>
+                <h3>Modelo que anticipa el estrés</h3>
+                <p>Un Random Forest Classifier cruza variables ambientales para identificar estrés hídrico, ventanas de absorción y el momento de intervenir.</p>
+                <div class="layer-tag">Decidir antes del estrés</div>
+              </div>
+              <div class="model-schematic" aria-hidden="true"><span></span><span></span><span></span><span></span><b></b></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="model section-border" id="modelo" aria-labelledby="model-title">
+        <div class="container model-layout">
+          <div class="section-intro">
+            <p class="eyebrow">03 · Demostración analítica</p>
+            <h2 id="model-title">La recomendación nace de una lectura, no de una suposición.</h2>
+            <p>Explora una lectura de humedad volumétrica. El modelo compara el dato con la zona de absorción de la planta y evita activar el riego cuando el suelo aún conserva agua disponible.</p>
+          </div>
+          <div class="analysis-panel">
+            <div class="panel-top">
+              <span>Parcela experimental · Querétaro</span>
+              <span class="live-label"><i></i> Lectura simulada</span>
+            </div>
+            <div class="reading-row">
+              <div class="reading-value"><strong id="moisture-value">42</strong><span>%</span><small>humedad volumétrica</small></div>
+              <div class="reading-chart" aria-hidden="true">
+                <span class="chart-axis axis-left">0</span><span class="chart-axis axis-right">60%</span>
+                <div class="chart-track"><i id="chart-marker"></i><b></b></div>
+                <div class="chart-labels"><span>Estrés</span><span>Zona de absorción</span><span>Saturación</span></div>
+              </div>
+            </div>
+            <label class="range-label" for="moisture-range">Ajustar lectura del sensor <output id="range-output" for="moisture-range">42%</output></label>
+            <input id="moisture-range" type="range" min="10" max="60" value="42" />
+            <div class="recommendation" id="recommendation">
+              <span class="recommendation-icon" aria-hidden="true">✓</span>
+              <div><strong>Riego no recomendado</strong><p>Humedad disponible dentro de la ventana de absorción. Esperar la siguiente lectura.</p></div>
+            </div>
+            <div class="model-foot"><span>Variables cruzadas: humedad · temperatura · CE</span><span>Clasificador: Random Forest</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="impact section-border" id="impacto" aria-labelledby="impact-title">
+        <div class="container">
+          <div class="impact-heading">
+            <p class="eyebrow">04 · Impacto esperado</p>
+            <h2 id="impact-title">Conservar agua también es regenerar el sistema.</h2>
+          </div>
+          <div class="impact-grid">
+            <article><strong>35<span>%</span></strong><h3>Ahorro hídrico</h3><p>Menos agua consumida al reemplazar el riego empírico por ventanas de intervención.</p></article>
+            <article><strong>01</strong><h3>Suelo vivo</h3><p>Una red radicular acompañada de microbiota que ayuda a conservar humedad y estructura.</p></article>
+            <article><strong>0</strong><h3>Riego a ciegas</h3><p>Decisiones trazables para reducir el exceso de agua y la lixiviación hacia mantos acuíferos.</p></article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div><strong>AtlaIA</strong><span>Investigación integral para el cuidado del agua.</span></div>
+        <p>Universidad Autónoma de Querétaro · 2026</p>
+      </div>
+    </footer>
+  </body>
+</html>
