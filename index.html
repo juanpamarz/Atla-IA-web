@@ -5,245 +5,290 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Atla-IA ayuda a productores y proyectos agrícolas a tomar mejores decisiones de riego, cuidar el suelo y aprovechar mejor cada gota."
+      content="AtlaIA: biotecnología radicular e inteligencia artificial para conservar el agua y cuidar la tierra."
     />
-    <title>Atla-IA | Mejores decisiones para cada gota</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script src="script.js" defer></script>
+    <title>AtlaIA — Revolución hídrica bajo la tierra</title>
+    <style>
+      :root {
+        --black: #0d0b0a;
+        --black-soft: #12100e;
+        --earth: #b89768;
+        --earth-dark: #8c6d48;
+        --field: #2d4a3e;
+        --field-light: #4a7c59;
+        --mist: #e8eee9;
+        --muted: #a9aaa2;
+        --line: rgba(232, 238, 233, .17);
+        --sans: Arial, Helvetica, sans-serif;
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; background: var(--black); color: var(--mist); font-family: var(--sans); }
+      body, button, input { font-family: var(--sans); }
+      a { color: inherit; text-decoration: none; }
+      button, input { font: inherit; }
+      .wrap { width: min(1240px, calc(100% - 96px)); margin: 0 auto; }
+      .eyebrow { margin: 0 0 24px; color: var(--earth); font-size: 10px; font-weight: 700; letter-spacing: .19em; text-transform: uppercase; }
+      .eyebrow::before { content: ""; display: inline-block; width: 27px; height: 1px; margin: 0 10px 3px 0; background: currentColor; }
+      h1, h2, h3, p { margin-top: 0; }
+      h1, h2, h3 { font-weight: 400; letter-spacing: -.06em; }
+      h1 { margin-bottom: 28px; font-size: clamp(60px, 9vw, 132px); line-height: .9; }
+      h2 { margin-bottom: 24px; font-size: clamp(48px, 7vw, 96px); line-height: .94; }
+      h3 { margin-bottom: 13px; font-size: 28px; line-height: 1; }
+      p { color: var(--muted); font-size: 16px; line-height: 1.6; }
+
+      .nav {
+        position: fixed;
+        z-index: 20;
+        top: 18px;
+        right: 0;
+        left: 0;
+      }
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 54px;
+        padding: 0 18px;
+        border: 1px solid rgba(232, 238, 233, .17);
+        border-radius: 999px;
+        background: rgba(13, 11, 10, .72);
+        backdrop-filter: blur(18px);
+      }
+      .brand { display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 700; letter-spacing: -.04em; }
+      .brand-mark { display: grid; place-items: center; width: 28px; height: 28px; border: 1px solid var(--earth); border-radius: 50%; color: var(--earth); font-size: 14px; }
+      .nav-links { display: flex; align-items: center; gap: 28px; color: var(--muted); font-size: 11px; }
+      .nav-links a { transition: color .25s ease; }
+      .nav-links a:hover { color: var(--mist); }
+      .nav-contact { color: var(--earth); }
+
+      .hero {
+        position: relative;
+        min-height: 100svh;
+        display: flex;
+        align-items: flex-end;
+        overflow: hidden;
+        padding: 160px 0 85px;
+        background:
+          linear-gradient(90deg, rgba(13, 11, 10, .9) 0%, rgba(13, 11, 10, .58) 48%, rgba(13, 11, 10, .38) 100%),
+          linear-gradient(0deg, rgba(13, 11, 10, .94) 0%, transparent 42%),
+          url("the_northern_photographer-tractor-9779346_1920.jpg") center/cover;
+      }
+      .hero::after { content: ""; position: absolute; right: 7%; bottom: 12%; width: 1px; height: 110px; background: linear-gradient(transparent, var(--earth)); }
+      .hero-copy { position: relative; z-index: 1; max-width: 910px; }
+      .hero h1 { max-width: 850px; }
+      .hero h1 span { display: block; color: var(--earth); }
+      .hero-subtitle { max-width: 510px; margin-bottom: 38px; color: #d3d5ce; font-size: 17px; }
+      .actions { display: flex; gap: 12px; align-items: center; }
+      .pill { display: inline-flex; align-items: center; gap: 18px; padding: 14px 20px; border: 1px solid var(--earth); border-radius: 999px; font-size: 11px; font-weight: 700; transition: background .25s ease, color .25s ease; }
+      .pill-primary { background: var(--earth); color: var(--black); }
+      .pill-primary:hover { background: var(--mist); border-color: var(--mist); }
+      .pill-ghost { border-color: rgba(232, 238, 233, .32); color: var(--mist); }
+      .pill-ghost:hover { background: var(--mist); color: var(--black); }
+      .hero-index { position: absolute; right: 6%; bottom: 72px; color: rgba(232, 238, 233, .5); font: 11px/1 var(--sans); letter-spacing: .2em; writing-mode: vertical-rl; text-transform: uppercase; }
+
+      .intro { padding: 170px 0 155px; background: var(--black); }
+      .intro-grid { display: grid; grid-template-columns: .58fr 1fr; gap: 100px; align-items: start; }
+      .intro h2 { max-width: 760px; }
+      .intro h2 em { color: var(--earth); font-style: normal; }
+      .intro-copy { max-width: 390px; padding-top: 21px; }
+      .intro-copy p { margin-bottom: 29px; }
+      .micro-stat { padding-top: 20px; border-top: 1px solid var(--line); }
+      .micro-stat strong { display: block; color: var(--earth); font-size: 39px; font-weight: 400; letter-spacing: -.08em; }
+      .micro-stat span { color: var(--muted); font-size: 11px; }
+
+      .bento { padding: 0 0 155px; background: var(--black); }
+      .bento-grid { display: grid; grid-template-columns: 1.18fr .82fr; grid-template-rows: 325px 325px; gap: 12px; }
+      .image-card { position: relative; overflow: hidden; min-height: 240px; }
+      .image-card::before { content: ""; position: absolute; z-index: 1; inset: 0; background: linear-gradient(0deg, rgba(13, 11, 10, .88), rgba(13, 11, 10, .12) 70%); }
+      .image-card img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .7s cubic-bezier(.2,.7,.2,1); }
+      .image-card:hover img { transform: scale(1.045); }
+      .image-card-large { grid-row: 1 / 3; }
+      .card-content { position: absolute; z-index: 2; right: 28px; bottom: 25px; left: 28px; }
+      .card-content p { max-width: 420px; margin: 0; color: #d4d5cc; font-size: 13px; }
+      .card-kicker { margin-bottom: 10px; color: var(--earth); font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+      .image-card h3 { margin-bottom: 7px; font-size: 33px; }
+      .card-number { position: absolute; z-index: 2; top: 24px; left: 26px; color: rgba(232, 238, 233, .72); font-size: 10px; letter-spacing: .18em; }
+
+      .biotech { padding: 165px 0; background: #11100e; }
+      .split-heading { display: grid; grid-template-columns: 1fr .55fr; gap: 100px; align-items: end; margin-bottom: 90px; }
+      .split-heading h2 { max-width: 670px; margin-bottom: 0; }
+      .split-heading h2 span { color: var(--field-light); }
+      .split-heading p { max-width: 345px; margin-bottom: 3px; }
+      .root-diagram { position: relative; height: 390px; overflow: hidden; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: radial-gradient(ellipse at 50% 8%, rgba(74, 124, 89, .19), transparent 55%); }
+      .root-diagram::before { content: "above ground"; position: absolute; top: 20px; left: 0; color: #69776d; font-size: 9px; letter-spacing: .17em; text-transform: uppercase; }
+      .root-diagram::after { content: "root network"; position: absolute; bottom: 21px; left: 0; color: var(--earth); font-size: 9px; letter-spacing: .17em; text-transform: uppercase; }
+      .plant-stem { position: absolute; top: 33px; left: 50%; width: 2px; height: 115px; background: var(--field-light); transform: translateX(-50%); }
+      .plant-stem::before, .plant-stem::after { content: ""; position: absolute; top: 27px; width: 77px; height: 28px; border-top: 2px solid var(--field-light); border-radius: 50%; }
+      .plant-stem::before { right: 0; transform: rotate(24deg); transform-origin: right; }.plant-stem::after { left: 0; transform: rotate(-24deg); transform-origin: left; }
+      .root { position: absolute; top: 136px; left: 50%; width: 2px; height: 218px; background: var(--earth-dark); transform-origin: top; }
+      .root::before, .root::after { content: ""; position: absolute; width: 1px; height: 155px; background: var(--earth-dark); transform-origin: top; }
+      .root::before { left: 0; transform: rotate(32deg); }.root::after { right: 0; transform: rotate(-32deg); }
+      .root-fine { position: absolute; top: 183px; left: 50%; width: 210px; height: 115px; border-top: 1px solid var(--earth); border-radius: 50%; transform: translateX(-50%) rotate(9deg); opacity: .75; }
+      .bacteria { position: absolute; width: 8px; height: 8px; border: 1px solid var(--field-light); border-radius: 50%; box-shadow: 0 0 0 5px rgba(74, 124, 89, .12); }
+      .bacteria:nth-of-type(1) { top: 198px; left: 35%; }.bacteria:nth-of-type(2) { top: 244px; left: 63%; }.bacteria:nth-of-type(3) { top: 299px; left: 41%; }
+      .diagram-label { position: absolute; color: var(--mist); font-size: 11px; }.label-root { top: 209px; left: 9%; }.label-root::after { content: ""; display: inline-block; width: 60px; height: 1px; margin-left: 9px; background: var(--earth); vertical-align: middle; }.label-bacteria { top: 275px; right: 9%; color: var(--field-light); }.label-bacteria::before { content: ""; display: inline-block; width: 54px; height: 1px; margin-right: 9px; background: var(--field-light); vertical-align: middle; }
+      .biotech-note { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 52px; }.biotech-note p { max-width: 430px; margin: 0; }.biotech-note strong { color: var(--mist); font-size: 14px; font-weight: 400; }
+
+      .ai { padding: 165px 0; background: var(--black); }
+      .ai-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: 100px; align-items: center; }
+      .ai-copy h2 { max-width: 620px; }.ai-copy h2 span { color: var(--earth); }.ai-copy p { max-width: 430px; }
+      .ai-visual { position: relative; height: 520px; overflow: hidden; border: 1px solid var(--line); background: url("saulhm-mexico-4742214_1920.jpg") center/cover; }
+      .ai-visual::before { content: ""; position: absolute; inset: 0; background: linear-gradient(130deg, rgba(13, 11, 10, .87), rgba(13, 11, 10, .28)); }
+      .signal { position: absolute; z-index: 1; right: 32px; bottom: 30px; left: 32px; padding-top: 16px; border-top: 1px solid rgba(232, 238, 233, .35); color: var(--mist); font-size: 12px; }
+      .signal strong { display: block; margin-bottom: 5px; color: var(--earth); font-size: 20px; font-weight: 400; }
+      .signal span { color: #c1c6bc; }
+      .ai-tag { position: absolute; z-index: 1; top: 25px; left: 25px; color: var(--mist); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; }
+      .ai-tag::before { content: ""; display: inline-block; width: 7px; height: 7px; margin-right: 8px; border-radius: 50%; background: var(--field-light); }
+      .data-lines { position: absolute; z-index: 1; top: 37%; right: 11%; left: 11%; height: 100px; background: repeating-linear-gradient(0deg, transparent 0 27px, rgba(232, 238, 233, .25) 28px); }
+      .data-lines::after { content: ""; position: absolute; inset: 15px 0; border-top: 1px solid var(--earth); border-right: 1px solid var(--earth); transform: skewY(-16deg); }
+
+      .final-image { position: relative; min-height: 555px; display: flex; align-items: center; overflow: hidden; padding: 100px 0; background: linear-gradient(90deg, rgba(13, 11, 10, .88), rgba(13, 11, 10, .4)), url("lucynietoc-agriculture-3126782_1920.jpg") center/cover; }
+      .final-image h2 { max-width: 740px; }.final-image h2 span { color: var(--earth); }.final-image p { max-width: 470px; color: #d3d5ce; }
+      .newsletter { padding: 145px 0 160px; background: var(--black-soft); }
+      .newsletter-inner { display: grid; grid-template-columns: 1fr .78fr; gap: 120px; align-items: end; }
+      .newsletter h2 { max-width: 630px; margin-bottom: 0; }.newsletter h2 span { color: var(--earth); }
+      .newsletter-copy p { max-width: 330px; margin-bottom: 0; }
+      .form { display: flex; align-items: center; border-bottom: 1px solid rgba(232, 238, 233, .5); }
+      .form input { flex: 1; min-width: 0; padding: 17px 0; border: 0; outline: 0; background: transparent; color: var(--mist); font-size: 14px; }
+      .form input::placeholder { color: #777a74; }
+      .form button { padding: 12px 0 12px 15px; border: 0; background: none; color: var(--earth); font-size: 11px; font-weight: 700; cursor: pointer; }
+      .form button:hover { color: var(--mist); }.form-status { min-height: 22px; margin: 13px 0 0; color: var(--field-light); font-size: 11px; }
+      footer { padding: 22px 0; border-top: 1px solid var(--line); color: #777b74; font-size: 10px; }.footer-inner { display: flex; justify-content: space-between; }
+
+      .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }.reveal.visible { opacity: 1; transform: none; }
+      @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; }.reveal { opacity: 1; transform: none; transition: none; } }
+      @media (max-width: 800px) {
+        .wrap { width: min(100% - 48px, 1240px); }.nav { top: 12px; }.nav-inner { min-height: 50px; }.nav-links { gap: 14px; }.nav-links a:not(.nav-contact) { display: none; }
+        .hero { min-height: 800px; padding-bottom: 80px; background-position: 63% center; }.hero::after, .hero-index { display: none; }
+        .intro, .biotech, .ai, .newsletter { padding: 105px 0; }.intro-grid, .split-heading, .ai-grid, .newsletter-inner { grid-template-columns: 1fr; gap: 42px; }.intro-copy { padding-top: 0; }.bento { padding-bottom: 105px; }.bento-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 300px 300px; }.image-card-large { grid-row: 1 / 3; }.image-card h3 { font-size: 24px; }.card-content { right: 18px; bottom: 18px; left: 18px; }.card-content p { font-size: 11px; }
+        .root-diagram { height: 330px; }.biotech-note { gap: 25px; }.ai-visual { height: 390px; }.newsletter-inner { align-items: start; }.newsletter-copy p { margin-bottom: 0; }
+      }
+      @media (max-width: 520px) {
+        .wrap { width: min(100% - 34px, 1240px); }.brand { font-size: 14px; }.hero { min-height: 740px; padding-top: 140px; }.hero-subtitle { font-size: 15px; }.actions { align-items: flex-start; flex-direction: column; }.pill { width: fit-content; }.intro h2, .split-heading h2, .ai-copy h2, .newsletter h2, .final-image h2 { font-size: 51px; }.bento-grid { display: block; }.image-card { height: 300px; margin-bottom: 10px; }.image-card-large { height: 400px; }.biotech-note { display: block; }.biotech-note p + p { margin-top: 23px; }.ai-grid { display: flex; flex-direction: column; }.ai-visual { width: 100%; }.final-image { min-height: 490px; }.footer-inner { align-items: flex-start; flex-direction: column; gap: 10px; }
+      }
+    </style>
   </head>
   <body>
-    <header class="site-header">
-      <div class="container header-inner">
-        <a class="brand" href="#inicio" aria-label="Atla-IA, volver al inicio">
-          <span class="brand-mark" aria-hidden="true">A</span>
-          <span>
-            <strong>Atla-IA</strong>
-            <small>Agua · suelo · decisiones</small>
-          </span>
-        </a>
-        <nav class="main-nav" aria-label="Navegación principal">
-          <a href="#solucion">La solución</a>
-          <a href="#proceso">Cómo funciona</a>
-          <a href="#servicio">El servicio</a>
-          <a href="#tecnologia">Tecnología</a>
+    <header class="nav">
+      <div class="wrap nav-inner">
+        <a class="brand" href="#inicio" aria-label="AtlaIA, inicio"><span class="brand-mark">A</span><span>AtlaIA</span></a>
+        <nav class="nav-links" aria-label="Navegación principal">
+          <a href="#biotecnologia">Biotecnología</a>
+          <a href="#inteligencia">IA agrícola</a>
+          <a class="nav-contact" href="#contacto">Contacto ↗</a>
         </nav>
-        <a class="header-cta" href="#contacto">Solicitar diagnóstico <span>↗</span></a>
       </div>
     </header>
 
-    <main id="inicio">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-texture" aria-hidden="true"></div>
-        <div class="container hero-layout">
-          <div class="hero-copy">
-            <p class="eyebrow"><span></span> Tecnología y biotecnología aplicadas</p>
-            <h1 id="hero-title">Mejores decisiones para <em>cada gota.</em></h1>
-            <p class="hero-lead">
-              Atla-IA combina biotecnología, medición en campo e inteligencia artificial
-              para ayudarte a cuidar el suelo, optimizar el riego y producir con mayor
-              claridad.
-            </p>
-            <div class="hero-actions">
-              <a class="button button-primary" href="#contacto">Solicitar diagnóstico <span>↗</span></a>
-              <a class="button button-quiet" href="#solucion">Conocer cómo funciona <span>↓</span></a>
-            </div>
-            <div class="hero-proof">
-              <span class="proof-mark">35<small>%</small></span>
-              <span><strong>ahorro de agua objetivo</strong><br />Una proyección del proyecto, no una promesa de producción.</span>
-            </div>
+    <main>
+      <section class="hero" id="inicio" aria-labelledby="hero-title">
+        <div class="wrap hero-copy">
+          <p class="eyebrow">Agricultura · agua · vida</p>
+          <h1 id="hero-title">Revolución hídrica <span>bajo la tierra.</span></h1>
+          <p class="hero-subtitle">AtlaIA conecta la inteligencia de las raíces con la claridad de los datos para cuidar el agua desde el lugar donde empieza todo: el suelo.</p>
+          <div class="actions">
+            <a class="pill pill-primary" href="#biotecnologia">Descubrir tecnología <span>↓</span></a>
+            <a class="pill pill-ghost" href="#contacto">Saber más <span>↗</span></a>
           </div>
+        </div>
+        <span class="hero-index">01 / AtlaIA</span>
+      </section>
 
-          <div class="hero-visual" aria-label="Ilustración de un campo conectado con datos">
-            <div class="field-art">
-              <div class="field-sky"></div>
-              <div class="field-sun"></div>
-              <div class="field-hills"></div>
-              <div class="field-lines"></div>
-              <div class="field-root"></div>
-              <div class="field-node"><i></i><span>lectura de campo</span></div>
-              <div class="field-data data-one">humedad<br /><strong>42%</strong></div>
-              <div class="field-data data-two">decisión<br /><strong>basada en datos</strong></div>
-              <div class="field-caption">Suelo vivo · medición real · acción oportuna</div>
+      <section class="intro" aria-labelledby="intro-title">
+        <div class="wrap intro-grid">
+          <p class="eyebrow">La idea</p>
+          <div>
+            <h2 id="intro-title">El agua no se pierde solo en la superficie. <em>También se pierde en la decisión.</em></h2>
+            <div class="intro-copy">
+              <p>Regar por costumbre es decidir sin escuchar. AtlaIA observa lo que ocurre bajo el cultivo y convierte esa lectura en una forma más consciente de cuidar cada gota.</p>
+              <div class="micro-stat"><strong>35%</strong><span>ahorro hídrico objetivo del proyecto</span></div>
             </div>
           </div>
         </div>
-        <div class="hero-scroll" aria-hidden="true"><span></span> Desplázate para conocer Atla-IA</div>
       </section>
 
-      <section class="problem section" id="problema" aria-labelledby="problem-title">
-        <div class="container">
-          <div class="section-kicker"><span>01</span> El reto del campo</div>
-          <div class="problem-intro">
-            <h2 id="problem-title">El problema no es solo cuánta agua usamos, sino <em>cuándo y por qué.</em></h2>
-            <p>Cuando el riego se decide por costumbre, el campo absorbe la incertidumbre: se pierde humedad, se desgasta el suelo y aumentan los costos.</p>
+      <section class="bento" aria-label="El campo que queremos cuidar">
+        <div class="wrap bento-grid">
+          <article class="image-card image-card-large">
+            <img src="saulhm-mexico-4742214_1920.jpg" alt="Surcos de cultivo frente a una montaña" />
+            <span class="card-number">02 / EL CONTEXTO</span>
+            <div class="card-content"><div class="card-kicker">La tierra primero</div><h3>Un campo vivo lee su propio ritmo.</h3><p>La humedad, el clima y la estructura del suelo cambian. La decisión también debería hacerlo.</p></div>
+          </article>
+          <article class="image-card">
+            <img src="lucynietoc-agriculture-3126782_1920.jpg" alt="Campo agrícola con surcos bajo un cielo azul" />
+            <span class="card-number">03</span>
+            <div class="card-content"><div class="card-kicker">Menos desperdicio</div><h3>Proteger el agua es proteger el futuro.</h3></div>
+          </article>
+          <article class="image-card">
+            <img src="the_northern_photographer-tractor-9779346_1920.jpg" alt="Tractor trabajando en un campo agrícola" />
+            <span class="card-number">04</span>
+            <div class="card-content"><div class="card-kicker">Decisiones reales</div><h3>La tecnología debe servir al campo.</h3></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="biotech" id="biotecnologia" aria-labelledby="bio-title">
+        <div class="wrap">
+          <div class="split-heading">
+            <div><p class="eyebrow">01 / Biotecnología radicular</p><h2 id="bio-title">La red más importante del campo <span>no se ve.</span></h2></div>
+            <p>Micorrizas y bacterias PGPB acompañan a la raíz para crear una relación más eficiente con el suelo y con el agua.</p>
           </div>
-          <div class="problem-board">
-            <div class="problem-board-label">Lo que ocurre cuando no hay una lectura clara</div>
-            <article class="problem-item">
-              <span class="problem-icon icon-drop" aria-hidden="true">≈</span>
-              <div><h3>Riego a ciegas</h3><p>Aplicar agua sin conocer la humedad real puede llevar a regar antes, después o más de lo necesario.</p></div>
-            </article>
-            <article class="problem-item">
-              <span class="problem-icon icon-root" aria-hidden="true">⌁</span>
-              <div><h3>Suelo que pierde capacidad</h3><p>La degradación de la estructura y la microbiota afecta la retención natural y la absorción.</p></div>
-            </article>
-            <article class="problem-item">
-              <span class="problem-icon icon-cost" aria-hidden="true">↗</span>
-              <div><h3>Costos difíciles de anticipar</h3><p>El desperdicio de agua e insumos reduce el margen y complica planear la siguiente decisión.</p></div>
-            </article>
-            <article class="problem-item">
-              <span class="problem-icon icon-weather" aria-hidden="true">◌</span>
-              <div><h3>Un clima que cambia</h3><p>Temperatura, humedad y disponibilidad de agua no siguen siempre el mismo patrón.</p></div>
-            </article>
+          <div class="root-diagram" aria-label="Diagrama visual de una planta y su red radicular">
+            <div class="plant-stem"></div><div class="root"></div><div class="root-fine"></div>
+            <i class="bacteria"></i><i class="bacteria"></i><i class="bacteria"></i>
+            <span class="diagram-label label-root">Red de raíces y micorrizas</span><span class="diagram-label label-bacteria">Bacterias PGPB</span>
+          </div>
+          <div class="biotech-note"><p><strong>Las micorrizas extienden el alcance de la raíz.</strong><br />Forman conexiones subterráneas que ayudan a explorar el suelo y acceder a agua y nutrientes con mayor eficiencia.</p><p><strong>Las bacterias acompañan el crecimiento.</strong><br />Las PGPB se relacionan con la zona radicular y apoyan un suelo con mejor estructura y actividad biológica.</p></div>
+        </div>
+      </section>
+
+      <section class="ai" id="inteligencia" aria-labelledby="ai-title">
+        <div class="wrap ai-grid">
+          <div class="ai-copy"><p class="eyebrow">02 / Inteligencia agrícola</p><h2 id="ai-title">Dejar de regar <span>a ciegas.</span></h2><p>El Machine Learning permite encontrar patrones entre humedad, temperatura y condiciones del entorno. No reemplaza la experiencia: la vuelve más informada.</p><a class="pill pill-ghost" href="#contacto">Entender el enfoque <span>↓</span></a></div>
+          <div class="ai-visual" aria-label="Visualización de datos sobre un campo">
+            <div class="ai-tag">Lectura del campo</div><div class="data-lines"></div><div class="signal"><strong>La siguiente decisión empieza aquí.</strong><span>Datos ambientales → contexto → una ventana de riego más clara.</span></div>
           </div>
         </div>
       </section>
 
-      <section class="solution section-dark" id="solucion" aria-labelledby="solution-title">
-        <div class="container">
-          <div class="section-kicker section-kicker-light"><span>02</span> La solución Atla-IA</div>
-          <div class="solution-heading">
-            <h2 id="solution-title">Del suelo a la decisión, <em>sin perder el contexto.</em></h2>
-            <p>Atla-IA no es una caja de sensores. Es una forma integral de entender lo que sucede en tu campo y actuar con mejor información.</p>
-          </div>
-          <div class="solution-flow">
-            <article class="solution-step solution-bio">
-              <div class="solution-number">01</div>
-              <div class="solution-art bio-art" aria-hidden="true"><span></span><span></span><span></span><i></i></div>
-              <p class="solution-label">Biotecnología</p>
-              <h3>Entendemos el suelo</h3>
-              <p>Hongos micorrizógenos arbusculares y bacterias PGPB buscan fortalecer la relación entre raíces, estructura y humedad.</p>
-            </article>
-            <div class="flow-plus" aria-hidden="true">+</div>
-            <article class="solution-step solution-sensor">
-              <div class="solution-number">02</div>
-              <div class="solution-art sensor-art" aria-hidden="true"><span></span><span></span><span></span><b></b></div>
-              <p class="solution-label">Sensores de campo</p>
-              <h3>Medimos lo que ocurre</h3>
-              <p>Nodos basados en ESP32 observan humedad volumétrica, temperatura y conductividad eléctrica en la zona radicular.</p>
-            </article>
-            <div class="flow-plus" aria-hidden="true">+</div>
-            <article class="solution-step solution-ai">
-              <div class="solution-number">03</div>
-              <div class="solution-art ai-art" aria-hidden="true"><span></span><span></span><span></span><span></span><b></b></div>
-              <p class="solution-label">Inteligencia artificial</p>
-              <h3>Convertimos datos en decisiones</h3>
-              <p>El análisis de variables ambientales ayuda a identificar estrés hídrico y ventanas de absorción para intervenir mejor.</p>
-            </article>
-          </div>
-        </div>
+      <section class="final-image" aria-labelledby="final-title">
+        <div class="wrap"><p class="eyebrow">Una nueva manera de mirar</p><h2 id="final-title">Más ciencia en la raíz.<br /><span>Más calma en la decisión.</span></h2><p>AtlaIA une biología, observación y aprendizaje para que el cuidado del agua sea parte natural de cómo se cultiva.</p></div>
       </section>
 
-      <section class="process section" id="proceso" aria-labelledby="process-title">
-        <div class="container">
-          <div class="section-kicker"><span>03</span> Una experiencia sencilla</div>
-          <div class="process-heading">
-            <h2 id="process-title">La tecnología trabaja detrás. <em>Tú decides mejor.</em></h2>
-            <p>El recorrido está pensado para que la información sea útil, no para agregar complejidad.</p>
-          </div>
-          <div class="process-list">
-            <article><span>01</span><div><h3>Conocemos tu campo</h3><p>Partimos de tu cultivo, suelo, operación y necesidades reales.</p></div></article>
-            <article><span>02</span><div><h3>Medimos las condiciones</h3><p>Observamos las variables que influyen en el agua y en la zona radicular.</p></div></article>
-            <article><span>03</span><div><h3>Analizamos el contexto</h3><p>Organizamos la información para distinguir patrones y momentos de atención.</p></div></article>
-            <article><span>04</span><div><h3>Te ayudamos a decidir</h3><p>Recibes una lectura más clara para orientar cuándo y cuánto regar.</p></div></article>
-          </div>
-        </div>
-      </section>
-
-      <section class="service section-paper" id="servicio" aria-labelledby="service-title">
-        <div class="container service-layout">
-          <div class="service-intro">
-            <div class="section-kicker"><span>04</span> El servicio</div>
-            <h2 id="service-title">Información útil para actuar, no otra pantalla que revisar.</h2>
-            <p>Atla-IA se plantea como un acompañamiento integral para entender mejor el campo y tomar decisiones de riego con datos.</p>
-            <a class="text-link text-link-dark" href="#contacto">Quiero conocer el servicio <span>↗</span></a>
-          </div>
-          <div class="service-list">
-            <div><span class="service-check">01</span><strong>Diagnóstico inicial</strong><p>Un punto de partida para conocer el cultivo, el suelo y el contexto del proyecto.</p></div>
-            <div><span class="service-check">02</span><strong>Monitoreo de condiciones</strong><p>Lecturas de humedad, temperatura y conductividad eléctrica donde importa.</p></div>
-            <div><span class="service-check">03</span><strong>Recomendaciones basadas en datos</strong><p>Información para orientar las decisiones de riego y reducir la incertidumbre.</p></div>
-            <div><span class="service-check">04</span><strong>Seguimiento del sistema</strong><p>Una base para revisar lo que ocurre y mejorar las decisiones con el tiempo.</p></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="impact section-dark" id="impacto" aria-labelledby="impact-title">
-        <div class="container">
-          <div class="section-kicker section-kicker-light"><span>05</span> Impacto esperado</div>
-          <div class="impact-heading">
-            <h2 id="impact-title">Cada mejora en la decisión protege algo más grande.</h2>
-            <p>Estas son metas e impactos esperados del proyecto, no resultados garantizados ni mediciones de producción.</p>
-          </div>
-          <div class="impact-metrics">
-            <div class="metric metric-main"><strong>35<small>%</small></strong><span>Ahorro de agua objetivo</span><p>Proyección planteada por Atla-IA para mejorar la eficiencia hídrica.</p></div>
-            <div class="metric"><strong>01</strong><span>Suelo con mayor contexto</span><p>Mejor comprensión de las condiciones que afectan la retención y absorción.</p></div>
-            <div class="metric"><strong>→</strong><span>Decisiones más oportunas</span><p>Orientar el riego con información en lugar de hacerlo solo por costumbre.</p></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="technology section" id="tecnologia" aria-labelledby="technology-title">
-        <div class="container">
-          <div class="tech-heading">
-            <div><div class="section-kicker"><span>06</span> Para quienes quieren saber más</div><h2 id="technology-title">La tecnología que sostiene la experiencia.</h2></div>
-            <p>La parte técnica existe para hacer más clara la decisión, no para reemplazarla.</p>
-          </div>
-          <div class="tech-pipeline" aria-label="Flujo de tecnología de Atla-IA">
-            <div><span class="pipeline-icon">ESP</span><strong>ESP32</strong><small>Nodos de campo</small></div>
-            <i>→</i>
-            <div><span class="pipeline-icon">◉</span><strong>Sensores</strong><small>Humedad · temperatura · CE</small></div>
-            <i>→</i>
-            <div><span class="pipeline-icon">∿</span><strong>Datos</strong><small>Variables del entorno</small></div>
-            <i>→</i>
-            <div><span class="pipeline-icon">AI</span><strong>IA / ML</strong><small>Random Forest como línea base</small></div>
-            <i>→</i>
-            <div class="pipeline-result"><span class="pipeline-icon">✓</span><strong>Recomendación</strong><small>Una decisión más informada</small></div>
-          </div>
-          <div class="tech-note">La documentación actual reporta una precisión aproximada del 60 % en el conjunto analizado. Es una línea base de investigación y no debe interpretarse como una validación productiva.</div>
-        </div>
-      </section>
-
-      <section class="audience section-paper" aria-labelledby="audience-title">
-        <div class="container audience-layout">
-          <div><div class="section-kicker"><span>07</span> Para quién es Atla-IA</div><h2 id="audience-title">Pensado para quienes quieren cuidar mejor su campo.</h2></div>
-          <div class="audience-copy">
-            <p>Para productores, parcelas, proyectos agrícolas e instituciones que buscan hacer un uso más eficiente del agua sin perder de vista la salud del suelo.</p>
-            <ul>
-              <li>Reducir el desperdicio de agua.</li>
-              <li>Conocer mejor las condiciones del suelo.</li>
-              <li>Tomar decisiones de riego con datos.</li>
-              <li>Prepararse para condiciones variables.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section class="contact section-dark" id="contacto" aria-labelledby="contact-title">
-        <div class="container contact-layout">
-          <div class="contact-copy">
-            <div class="section-kicker section-kicker-light"><span>08</span> Hablemos de tu proyecto</div>
-            <h2 id="contact-title">Cada gota cuenta. <em>Empieza por conocer tu campo.</em></h2>
-            <p>Cuéntanos brevemente sobre tu cultivo o parcela y te ayudaremos a identificar el siguiente paso.</p>
-            <div class="contact-note">Atla-IA · Desarrollado por estudiantes de ña Universidad Autónoma de Querétaro</div>
-          </div>
-          <form class="contact-form" id="contact-form">
-            <label>Nombre<input type="text" name="name" placeholder="Tu nombre" required /></label>
-            <label>Correo electrónico<input type="email" name="email" placeholder="tu@correo.com" required /></label>
-            <label>Cuéntanos sobre tu proyecto<textarea name="project" rows="3" placeholder="Cultivo, ubicación o principal reto"></textarea></label>
-            <button class="button button-light" type="submit">Solicitar diagnóstico <span>↗</span></button>
-            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
-          </form>
+      <section class="newsletter" id="contacto" aria-labelledby="newsletter-title">
+        <div class="wrap newsletter-inner">
+          <div class="newsletter-copy"><p class="eyebrow">03 / Mantente cerca</p><h2 id="newsletter-title">Sé parte de la <span>evolución agrícola.</span></h2></div>
+          <div><p>Déjanos tu correo para recibir novedades, avances y más información sobre AtlaIA.</p><form class="form" id="newsletter-form"><input id="email" name="email" type="email" placeholder="tu@correo.com" aria-label="Correo electrónico" required /><button type="submit">Suscribirme&nbsp; ↗</button></form><p class="form-status" id="form-status" role="status" aria-live="polite"></p></div>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer">
-      <div class="container footer-inner">
-        <a class="brand" href="#inicio"><span class="brand-mark" aria-hidden="true">A</span><span><strong>Atla-IA</strong><small>Agua · suelo · decisiones</small></span></a>
-        <p>Universidad Autónoma de Querétaro · Investigación aplicada</p>
-        <a href="#inicio" class="footer-top">Volver arriba ↑</a>
-      </div>
-    </footer>
+    <footer><div class="wrap footer-inner"><span>AtlaIA · Revolución hídrica bajo la tierra.</span><span>Agua · suelo · decisiones</span></div></footer>
+    <script>
+      const form = document.querySelector("#newsletter-form");
+      const status = document.querySelector("#form-status");
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        status.textContent = "Tu correo ha sido registrado con éxito.";
+        form.reset();
+      });
+      const revealItems = document.querySelectorAll(".intro-grid, .image-card, .split-heading, .root-diagram, .biotech-note, .ai-copy, .ai-visual, .final-image .wrap, .newsletter-inner");
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver((entries, currentObserver) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              currentObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: .12 });
+        revealItems.forEach((item) => {
+          item.classList.add("reveal");
+          observer.observe(item);
+        });
+      }
+    </script>
   </body>
 </html>
-
